@@ -1,0 +1,14 @@
+*.pyc
+__pycache__/
+.DS_Store
+*.txt
+*.json
+*.csv
+*.tsv
+*.rtf
+*.pvoc
+*.xlsx
+*.xml
+archive/
+kanji_data/
+.mypy_cache
