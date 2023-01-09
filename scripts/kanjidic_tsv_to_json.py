@@ -13,13 +13,6 @@ GROUPS = {
     'Kanji' : {
         'info' : {
             'kanji' : 'Kanji'
-        },
-        'extra' : {
-            'jlpt' : 'JLPT',
-            'grade' : 'Grade',
-            'freq' : 'Rank',
-            'ref_sh_kk' : 'SH KK #',
-            'strokes' : 'Strokes'
         }
     },
     'On Reading' : {
@@ -36,32 +29,55 @@ GROUPS = {
         'info' : {
             'meanings' : 'Meanings'
         }
+    },
+    'Extra' : {
+        'info' : {
+            'jlpt' : 'JLPT',
+            'grade' : 'Grade',
+            'freq' : 'Rank',
+            'ref_sh_kk' : 'SH KK #',
+            'strokes' : 'Strokes'
+        },
+        'table' : True,
+        'extra' : True
     }
 }
 
 MODES = {
     'Kanji' : {
-        'front' : ['Kanji'],
-        'back' : ['On Reading', 'Kun Reading', 'Meanings']
+        'front' : ['Kanji', 'Extra'],
+        'back' : ['On Reading', 'Kun Reading', 'Meanings'],
+        'required' : ['Kanji']
     },
     'On Reading' : {
         'front' : ['On Reading'],
-        'back' : ['Kanji', 'On Reading', 'Kun Reading', 'Meanings']
+        'back' : ['Kanji', 'On Reading', 'Kun Reading', 'Meanings', 'Extra'],
+        'disambiguate' : ['Meanings'],
+        'required' : ['On Reading']
     },
     'Kun Reading' : {
         'front' : ['Kun Reading'],
-        'back' : ['Kanji', 'On Reading', 'Kun Reading', 'Meanings']
+        'back' : ['Kanji', 'On Reading', 'Kun Reading', 'Meanings', 'Extra'],
+        'disambiguate' : ['Meanings'],
+        'required' : ['Kun Reading']
     },
     'Meanings' : {
         'front' : ['Meanings'],
-        'back' : ['Kanji', 'On Reading', 'Kun Reading']
+        'back' : ['Kanji', 'On Reading', 'Kun Reading', 'Extra'],
+        'required' : ['Meanings']
     }
 }
 
 FILTERS = {
     'JLPT' : {
         'field' : 'jlpt',
-        'values' : [4, 3, 2, 1, None]
+        'values' : [
+            {'value' : 4, 'default' : True},
+            {'value' : 3, 'default' : True},
+            {'value' : 2, 'default' : True},
+            {'value' : 1, 'default' : True},
+            {'value' : None, 'default' : False}
+        ]
     }
 }
 

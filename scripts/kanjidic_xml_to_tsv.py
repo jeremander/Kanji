@@ -46,7 +46,7 @@ if __name__ == '__main__':
                 if (reading.r_type in ['ja_on', 'ja_kun']):
                     d[reading.r_type].append(reading.value)
             on_yomi = ', '.join(d.get('ja_on', []))
-            kun_yomi = ', '.join(d.get('ja_kun', []))
+            kun_yomi = ', '.join(d.get('ja_kun', [])).replace('.', '･')
             # meanings
             meanings = ', '.join(meaning.value for meaning in rm_group.meanings if (meaning.m_lang == ''))
             entry += [on_yomi, kun_yomi, meanings]
